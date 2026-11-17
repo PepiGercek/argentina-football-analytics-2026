@@ -1,0 +1,21 @@
+﻿# Entorno virtual y configuración local
+.venv/
+.env
+.env.*
+!.env.example
+
+# Archivos generados por Python y Jupyter
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Datos: revisar fuentes y permisos antes de versionarlos
+/data/raw/*
+/data/processed/*
+!/data/raw/.gitkeep
+!/data/processed/.gitkeep
+
+# Archivos temporales de Windows
+Thumbs.db
+Desktop.ini
