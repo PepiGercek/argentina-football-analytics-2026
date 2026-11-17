@@ -45,3 +45,9 @@ Entorno local: Windows, VS Code y PowerShell.
 ## Estado
 
 Configuración inicial del proyecto. Todavía no se incorporaron ni validaron datos.
+
+## Entorno de desarrollo
+
+La [guía del entorno](docs/entorno.md) describe la configuración en Windows y los pasos para reproducirla.
+
+Las versiones de las dependencias están registradas en [requirements.txt](requirements.txt).
