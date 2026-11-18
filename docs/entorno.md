@@ -45,4 +45,4 @@ Ejecutar desde la raíz del proyecto, con Python 3.14 instalado.
 - pip check devolvió: No broken requirements found.
 - pandas, ipykernel y pytest se importaron correctamente desde el entorno virtual.
 
-La selección del intérprete y del kernel en VS Code está pendiente.
+En VS Code se seleccionó .venv como intérprete del proyecto y como kernel del notebook. Una celda con sys.executable confirmó el uso del Python del entorno virtual.
