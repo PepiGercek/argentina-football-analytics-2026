@@ -19,3 +19,8 @@ __pycache__/
 # Archivos temporales de Windows
 Thumbs.db
 Desktop.ini
+
+# Archivos generados al empaquetar Python
+*.egg-info/
+/build/
+/dist/

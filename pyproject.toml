@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lpf-analytics"
+version = "0.1.0"
+description = "LPF 2026: resultados y balances de equipos"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pandas>=3.1,<4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

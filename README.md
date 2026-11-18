@@ -15,7 +15,7 @@ Referencias iniciales aportadas para contrastar con los datos:
 - Balance esperado: 63 puntos, 46 goles a favor y 23 en contra.
 - Cobertura total esperada: 480 partidos.
 
-Estos valores son controles pendientes de validación.
+El balance agregado de Boca y los conteos por torneo ya fueron comprobados. La validación completa continúa en curso.
 
 ## Análisis previstos
 
@@ -44,7 +44,15 @@ Entorno local: Windows, VS Code y PowerShell.
 
 ## Estado
 
-Configuración inicial del proyecto. Todavía no se incorporaron ni validaron datos.
+Base local incorporada: 480 registros, repartidos en 240 por torneo.
+
+Balance agregado de Boca comprobado desde los marcadores.
+
+Pruebas automatizadas: 14 aprobadas, incluidas 2 sobre el CSV real.
+
+Continúan pendientes el cotejo individual con AFA, las fechas jugadas, los DT y la validación del resto de los equipos.
+
+Ver [fuentes y trazabilidad](docs/fuentes.md).
 
 ## Entorno de desarrollo
 

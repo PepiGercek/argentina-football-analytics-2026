@@ -46,3 +46,21 @@ Ejecutar desde la raíz del proyecto, con Python 3.14 instalado.
 - pandas, ipykernel y pytest se importaron correctamente desde el entorno virtual.
 
 En VS Code se seleccionó .venv como intérprete del proyecto y como kernel del notebook. Una celda con sys.executable confirmó el uso del Python del entorno virtual.
+
+## Paquete del proyecto y pruebas
+
+requirements.txt fija las versiones de las dependencias externas.
+
+Después de instalar esas dependencias, instalar el paquete local desde la raíz del proyecto:
+
+    .\.venv\Scripts\python.exe -m pip install --index-url https://pypi.org/simple --no-deps -e .
+
+El modo editable permite importar lpf_analytics desde los tests y notebooks, utilizando el código de src.
+
+Ejecutar todas las pruebas:
+
+    .\.venv\Scripts\python.exe -m pytest -v -ra
+
+Las pruebas unitarias usan partidos ficticios, identificados como tales.
+
+Los controles sobre datos reales requieren data/raw/LPF_2026_partidos.csv. Si falta ese archivo, esas pruebas se indican como omitidas y se informa el motivo.
