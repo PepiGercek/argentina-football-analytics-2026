@@ -48,13 +48,45 @@ Los permisos de redistribución de contenidos de AFA y Cómo Salió quedan pendi
 - Se verificó que los goles de esos partidos fueran numéricos, completos, enteros y no negativos.
 - Se recalculó el balance desde los marcadores: 17 victorias, 12 empates, 3 derrotas, 63 puntos, 46 GF y 23 GC.
 - Balance de Boca verificado con la función resumen_equipo, en src/lpf_analytics/resultados.py.
-- Ejecución del 2026-11-18: 14 tests aprobados (12 unitarios y 2 sobre el CSV real), sin omisiones.
+- Cotejo individual con la copia de AFA: 32 coincidencias en rival, condición, GF y GC; cero partidos faltantes.
+- Playoff de octavos contra Huracán excluido de la referencia anual.
+- Ejecución del 2026-11-19: 28 tests aprobados (24 unitarios y 4 sobre archivos reales), sin omisiones.
 
 ## Controles pendientes
 
 
-- Cotejar los 32 partidos de Boca con AFA y dejar una comprobación reproducible.
+
 - Verificar las fechas jugadas y documentar su relación con las jornadas del torneo.
 - Revisar las fuentes y las asignaciones de los DT.
 - Revisar duplicados, cobertura y créditos de todos los registros.
 - Recalcular los balances de los 30 equipos y contrastarlos con la tabla anual.
+
+## Referencia y equivalencias para el cotejo con AFA
+
+### Copia consultada
+
+- Archivo: data/raw/afa_boca_2026.html.
+- Descarga: 2026-11-18.
+- Tamaño: 65618 bytes.
+- SHA256: cd727a81a68d3c4a1e7b261d57a621de6bc3daf3e1afc80c97d465f2231f9f62.
+
+Se conservaron 16 jornadas de cada torneo: 32 partidos en total.
+La fila de octavos de final contra Huracán quedó excluida.
+
+### Equivalencias de nombres
+
+Estas reglas corresponden a los rivales de los partidos de zonas de Boca 2026 publicados por AFA.
+
+| Nombre en AFA | Nombre utilizado en el CSV |
+| --- | --- |
+| Estudiantes de La Plata | Estudiantes (La Plata) |
+| Gimnasia y Esgrima | Gimnasia (Mendoza) |
+| Talleres (C) | Talleres (Córdoba) |
+
+La equivalencia de Gimnasia se contrastó con RSSSF el 2026-11-18: la fecha 8 del Apertura registra Boca 1-1 CA Gimnasia y Esgrima, el 2026-02-28. La compilación identifica a ese club con sede en Mendoza y distingue al club de La Plata.
+
+RSSSF también identifica al Club Atlético Talleres con sede en Córdoba.
+
+Referencia: https://www.rsssf.org/tablesa/arg2026.html
+
+El cotejo conservará el nombre original de AFA junto al nombre normalizado, para mantener la trazabilidad.

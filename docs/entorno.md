@@ -9,11 +9,12 @@
 - Git: 2.55.0.windows.5.
 - pip del entorno virtual: 26.2.1.
 
-## Dependencias iniciales
+## Dependencias utilizadas
 
 - pandas 3.1.1: lectura y análisis de tablas.
 - ipykernel 7.4.0: ejecución de Python en notebooks.
-- pytest 9.2.0: pruebas de validación.
+- pytest 9.2.0: ejecución de pruebas automatizadas.
+- lxml 6.1.3: lectura de las tablas HTML de AFA.
 
 requirements.txt registra las versiones exactas de los paquetes instalados, incluidas sus dependencias.
 
@@ -63,4 +64,17 @@ Ejecutar todas las pruebas:
 
 Las pruebas unitarias usan partidos ficticios, identificados como tales.
 
-Los controles sobre datos reales requieren data/raw/LPF_2026_partidos.csv. Si falta ese archivo, esas pruebas se indican como omitidas y se informa el motivo.
+## Archivos de referencia para los controles reales
+
+Las pruebas utilizan estos archivos locales:
+
+- data/raw/LPF_2026_partidos.csv: base de resultados.
+- data/raw/afa_boca_2026.html: copia de la página de AFA.
+
+Para descargar la referencia de AFA desde la raíz del proyecto:
+
+    Invoke-WebRequest -Uri "https://www.afa.com.ar/es/posts/boca-se-corono-campeon-de-la-liga-2026" -OutFile ".\data\raw\afa_boca_2026.html" -UseBasicParsing
+
+La trazabilidad de las copias utilizadas está documentada en [fuentes.md](fuentes.md).
+
+Cuando falta un archivo requerido, la prueba correspondiente se indica como omitida y muestra el motivo. Las pruebas unitarias utilizan sus propios datos ficticios.

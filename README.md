@@ -48,9 +48,11 @@ Base local incorporada: 480 registros, repartidos en 240 por torneo.
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pruebas automatizadas: 14 aprobadas, incluidas 2 sobre el CSV real.
+Pruebas automatizadas: 28 aprobadas (24 unitarias y 4 sobre archivos reales).
 
-Continúan pendientes el cotejo individual con AFA, las fechas jugadas, los DT y la validación del resto de los equipos.
+Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
+
+Continúan pendientes las fechas jugadas, los DT y la validación del resto de los equipos.
 
 Ver [fuentes y trazabilidad](docs/fuentes.md).
 
