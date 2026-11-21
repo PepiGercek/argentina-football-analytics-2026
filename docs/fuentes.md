@@ -64,11 +64,21 @@ La copia de Cómo Salió utilizada se guardó en `data/raw/comosalio_tabla_anual
 
 Las equivalencias de nombres están en `src/lpf_analytics/fuentes.py`. El lector conserva el nombre publicado junto al nombre utilizado en el CSV.
 
+### Fechas de juego y marcadores según RSSSF
+
+La copia utilizada está en `data/raw/rsssf_argentina_2026.html`. Tiene 111939 bytes y su SHA256 es `96fbac67f0a2e8eb573ff8418629e1ef447f6545c03c16d5a0edab915cdb7383`.
+
+El lector `src/lpf_analytics/rsssf.py` extrae las fases de zonas desde el encabezado `Phase of groups` hasta la línea anterior a `Tie break:`. Conserva los nombres de RSSSF y sus equivalencias en el CSV.
+
+El cruce por torneo, jornada, local y visitante emparejó los 480 partidos. En todos coincidieron la fecha jugada y los goles de ambos equipos. La prueba `tests/test_rsssf.py` permite repetir el cotejo. La suite pasó las 30 pruebas, sin omisiones.
+
+`fecha` indica la jornada del torneo y `fecha_jugada` indica el día del partido. Por ejemplo, Boca jugó la jornada 9 del Apertura el 2 de mayo, después de la jornada 16 del 23 de abril. Para una evolución cronológica de puntos se usa `fecha_jugada`.
+
 ## Controles pendientes
 
 
 
-- Verificar las fechas jugadas y documentar su relación con las jornadas del torneo.
+
 - Revisar las fuentes y las asignaciones de los DT.
 - Verificar el criterio oficial de desempate antes de reproducir el orden de clasificación.
 

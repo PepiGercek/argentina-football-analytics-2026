@@ -48,11 +48,13 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 29 pruebas automatizadas, 24 unitarias y 5 sobre archivos reales.
+Pasaron 30 pruebas automatizadas, 24 unitarias y 6 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
-Quedan pendientes la verificación de las fechas jugadas, las asignaciones de los DT y los criterios oficiales de desempate.
+Los 480 partidos coinciden con RSSSF en jornada, localía, fecha de juego y marcador.
+
+Quedan pendientes la revisión de las asignaciones de los DT y los criterios oficiales de desempate.
 
 Ver [fuentes y trazabilidad](docs/fuentes.md).
 
