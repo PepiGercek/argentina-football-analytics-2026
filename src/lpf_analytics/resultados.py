@@ -56,3 +56,35 @@ def resumen_equipo(partidos: pd.DataFrame, equipo: str) -> dict[str, int]:
         "GF": int(gf.sum()),
         "GC": int(gc.sum()),
     }
+
+
+def tabla_equipos(partidos: pd.DataFrame) -> pd.DataFrame:
+    """Calcula una fila por equipo para el conjunto de partidos recibido.
+
+    Filtrar temporada, torneo y fase antes de llamar esta funcion.
+    La tabla se ordena por puntos y alfabeticamente en caso de empate.
+    """
+    faltantes = sorted({"local", "visitante"} - set(partidos.columns))
+    if faltantes:
+        raise ValueError(f"Faltan columnas requeridas: {faltantes}")
+
+    equipos = pd.concat(
+        [partidos["local"], partidos["visitante"]],
+        ignore_index=True,
+    )
+
+    if equipos.empty:
+        raise ValueError("No hay partidos para calcular la tabla.")
+    if equipos.isna().any() or equipos.astype("string").str.strip().eq("").any():
+        raise ValueError("Hay partidos con un equipo sin nombre.")
+
+    tabla = pd.DataFrame([
+        {"Equipo": equipo, **resumen_equipo(partidos, equipo)}
+        for equipo in equipos.unique()
+    ])
+    tabla["DG"] = tabla["GF"] - tabla["GC"]
+
+    columnas = ["Equipo", "PTS", "PJ", "PG", "PE", "PP", "GF", "GC", "DG"]
+    return tabla[columnas].sort_values(
+        ["PTS", "Equipo"], ascending=[False, True], ignore_index=True
+    )

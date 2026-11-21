@@ -86,3 +86,49 @@ def leer_boca_afa_2026(
     )
 
     return zonas, excluidos
+
+
+ALIAS_EQUIPOS_COMOSALIO_2026 = {
+    "Boca": "Boca Juniors",
+    "Argentinos": "Argentinos Juniors",
+    "Ind. Rivadavia": "Independiente Rivadavia",
+    "Gimnasia LP": "Gimnasia (La Plata)",
+    "Vélez": "Vélez Sarsfield",
+    "Estudiantes": "Estudiantes (La Plata)",
+    "Barracas": "Barracas Central",
+    "Def. y Jus.": "Defensa y Justicia",
+    "Unión (SF)": "Unión",
+    "Gimnasia (M)": "Gimnasia (Mendoza)",
+    "Sarmiento (J)": "Sarmiento (Junín)",
+    "Talleres": "Talleres (Córdoba)",
+    "Newell's": "Newell's Old Boys",
+    "Racing": "Racing Club",
+    "Atl Tucumán": "Atlético Tucumán",
+    "C. Córdoba (SE)": "Central Córdoba (SdE)",
+    "Riestra": "Deportivo Riestra",
+    "Estudiantes RC": "Estudiantes (Río Cuarto)",
+}
+
+
+def leer_tabla_anual_comosalio_2026(ruta_html: str | Path) -> pd.DataFrame:
+    """Lee los balances de Cómo Salió y conserva los nombres originales."""
+    texto = Path(ruta_html).read_text(encoding="utf-8-sig")
+    tablas = pd.read_html(StringIO(texto), flavor="lxml")
+
+    columnas = ["Equipo", "Pts", "PJ", "PG", "PE", "PP", "GF", "GC", "Dif"]
+    candidatas = [
+        tabla for tabla in tablas if set(columnas).issubset(tabla.columns)
+    ]
+    if len(candidatas) != 1:
+        raise ValueError("Se esperaba una única tabla con los balances anuales.")
+
+    referencia = candidatas[0][columnas].rename(
+        columns={"Pts": "PTS", "Dif": "DG"}
+    )
+    nombres = referencia["Equipo"].astype("string").str.strip()
+    if nombres.isna().any() or nombres.eq("").any():
+        raise ValueError("La referencia contiene equipos sin nombre.")
+
+    referencia.insert(1, "Equipo_original", nombres)
+    referencia["Equipo"] = nombres.replace(ALIAS_EQUIPOS_COMOSALIO_2026)
+    return referencia

@@ -70,10 +70,13 @@ Las pruebas utilizan estos archivos locales:
 
 - data/raw/LPF_2026_partidos.csv: base de resultados.
 - data/raw/afa_boca_2026.html: copia de la página de AFA.
+- data/raw/comosalio_tabla_anual_2026.html: copia de la tabla anual de Cómo Salió.
 
-Para descargar la referencia de AFA desde la raíz del proyecto:
+Desde la raíz del proyecto se pueden descargar las referencias de AFA y Cómo Salió.
 
     Invoke-WebRequest -Uri "https://www.afa.com.ar/es/posts/boca-se-corono-campeon-de-la-liga-2026" -OutFile ".\data\raw\afa_boca_2026.html" -UseBasicParsing
+
+    Invoke-WebRequest -Uri "https://comosalio.com/t/arg.1/anual" -OutFile ".\data\raw\comosalio_tabla_anual_2026.html" -UseBasicParsing
 
 La trazabilidad de las copias utilizadas está documentada en [fuentes.md](fuentes.md).
 

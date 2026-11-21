@@ -52,14 +52,26 @@ Los permisos de redistribución de contenidos de AFA y Cómo Salió quedan pendi
 - Playoff de octavos contra Huracán excluido de la referencia anual.
 - Ejecución del 2026-11-19: 28 tests aprobados (24 unitarios y 4 sobre archivos reales), sin omisiones.
 
+### Validación de los 480 partidos y la tabla anual
+
+- Los mismos 30 equipos tienen 16 partidos en cada torneo. Las 960 combinaciones de torneo, jornada y equipo aparecen exactamente una vez.
+- Los 480 marcadores tienen goles enteros, completos y no negativos. Los puntos guardados coinciden con los recalculados desde los goles en todos los partidos.
+- Las 480 filas conservan el enlace de RSSSF y el crédito «Osvaldo José Gorgazzi / RSSSF».
+- Los 30 balances calculados coinciden con Cómo Salió en PTS, PJ, PG, PE, PP, GF, GC y diferencia de gol.
+- El cotejo por equipo se puede repetir con la prueba de `tests/test_tabla_anual.py`. El 2026-11-21 pasaron las 29 pruebas de la suite, sin omisiones.
+
+La copia de Cómo Salió utilizada se guardó en `data/raw/comosalio_tabla_anual_2026.html`. Pesa 39659 bytes y su SHA256 es `df426d200ccfa248986300e3c2303dcf059f8ccc42abdeb134710af7e094ec7c`.
+
+Las equivalencias de nombres están en `src/lpf_analytics/fuentes.py`. El lector conserva el nombre publicado junto al nombre utilizado en el CSV.
+
 ## Controles pendientes
 
 
 
 - Verificar las fechas jugadas y documentar su relación con las jornadas del torneo.
 - Revisar las fuentes y las asignaciones de los DT.
-- Revisar duplicados, cobertura y créditos de todos los registros.
-- Recalcular los balances de los 30 equipos y contrastarlos con la tabla anual.
+- Verificar el criterio oficial de desempate antes de reproducir el orden de clasificación.
+
 
 ## Referencia y equivalencias para el cotejo con AFA
 
