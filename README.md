@@ -48,7 +48,7 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 31 pruebas automatizadas, 24 unitarias y 7 sobre archivos reales.
+Pasaron 33 pruebas automatizadas, 25 unitarias y 8 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
@@ -59,6 +59,12 @@ El [notebook de Boca](notebooks/01_boca_ciclos_2026.ipynb) compara los 16 partid
 Los 30 puestos de la tabla anual coinciden con RSSSF. Para el empate entre Independiente y Defensa y Justicia, el cálculo incorpora el orden publicado por RSSSF según el criterio de Fair Play.
 
 Ver [fuentes y trazabilidad](docs/fuentes.md).
+
+## Evolución de puntos
+
+![Puntos acumulados de Boca Juniors, Rosario Central y Argentinos Juniors por fecha de juego](reports/evolucion_puntos_top3_2026.png)
+
+El gráfico sigue a los tres primeros de la tabla anual. Cada equipo suma sus puntos el día en que disputó el partido, incluso cuando se reprogramó la jornada. El [script de generación](reports/generar_evolucion_puntos_top3.py) permite repetir el cálculo y regenerar el PNG.
 
 ## Entorno de desarrollo
 

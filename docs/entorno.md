@@ -14,7 +14,8 @@
 - pandas 3.1.1: lectura y análisis de tablas.
 - ipykernel 7.4.0: ejecución de Python en notebooks.
 - pytest 9.2.0: ejecución de pruebas automatizadas.
-- lxml 6.1.3: lectura de las tablas HTML de AFA.
+- lxml 6.1.3: lectura de las tablas HTML de las fuentes.
+- Matplotlib 3.11.2: gráficos de evolución.
 
 requirements.txt registra las versiones exactas de los paquetes instalados, incluidas sus dependencias.
 
@@ -84,3 +85,11 @@ Desde la raíz del proyecto se pueden descargar las referencias de AFA, Cómo Sa
 La trazabilidad de las copias utilizadas está documentada en [fuentes.md](fuentes.md).
 
 Cuando falta un archivo requerido, la prueba correspondiente se indica como omitida y muestra el motivo. Las pruebas unitarias utilizan sus propios datos ficticios.
+
+## Regenerar el gráfico de evolución
+
+Con el entorno configurado y `data/raw/LPF_2026_partidos.csv` disponible, ejecutar este comando desde la raíz del proyecto.
+
+    .\.venv\Scripts\python.exe .\reports\generar_evolucion_puntos_top3.py
+
+El script genera `reports/evolucion_puntos_top3_2026.png`.
