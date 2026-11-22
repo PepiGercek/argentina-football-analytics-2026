@@ -54,7 +54,9 @@ Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía 
 
 Los 480 partidos coinciden con RSSSF en jornada, localía, fecha de juego y marcador.
 
-Quedan pendientes la revisión de las asignaciones de los DT y los criterios oficiales de desempate.
+El [notebook de Boca](notebooks/01_boca_ciclos_2026.ipynb) compara los 16 partidos de zonas de cada ciclo. Boca pasó de 30 a 33 puntos. Sumó 8 puntos más de local y 5 menos de visitante.
+
+Queda pendiente verificar los criterios oficiales de desempate para reproducir el orden de la tabla anual.
 
 Ver [fuentes y trazabilidad](docs/fuentes.md).
 

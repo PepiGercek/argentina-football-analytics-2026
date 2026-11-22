@@ -74,12 +74,21 @@ El cruce por torneo, jornada, local y visitante emparejó los 480 partidos. En t
 
 `fecha` indica la jornada del torneo y `fecha_jugada` indica el día del partido. Por ejemplo, Boca jugó la jornada 9 del Apertura el 2 de mayo, después de la jornada 16 del 23 de abril. Para una evolución cronológica de puntos se usa `fecha_jugada`.
 
+### Ciclos técnicos de Boca en la tabla anual
+
+- **Claudio Úbeda.** El CSV le asigna los 16 partidos de zonas del Apertura, del 25 de enero al 2 de mayo. Boca lo identifica como DT en el [debut ante Riestra](https://www.bocajuniors.com.ar/noticias/cabeza-y-corazon) y en el [cierre de zonas ante Central Córdoba](https://www.bocajuniors.com.ar/noticias/cierre-con-victoria). [DeporTV reproduce el anuncio de su salida del 2 de junio](https://deportv.gob.ar/futbol/boca-oficial-ubeda-entrenador-no-va-mas-nid:13887).
+- **Rodolfo Arruabarrena.** El CSV le asigna los 16 partidos de zonas del Clausura, del 26 de julio al 7 de noviembre. Boca anunció su [nombramiento el 18 de junio](https://www.bocajuniors.com.ar/noticias/comunicado-oficial-2) y lo identifica como DT en el [debut ante Riestra](https://www.bocajuniors.com.ar/noticias/trabajare-para-pensar-en-chile) y en el [cierre ante Defensa y Justicia](https://www.bocajuniors.com.ar/noticias/campeones).
+
+La asignación de las jornadas intermedias se infiere por continuidad del ciclo. La comparación describe el rendimiento de Boca durante cada período. Como cada ciclo coincide con un torneo distinto, las diferencias observadas también reflejan cambios entre Apertura y Clausura.
+
+El [resumen de campaña de DeporTV](https://deportv.gob.ar/futbol/campana-boca-valio-titulo-liga-profesional-nid:18747) respalda el cambio de DT entre semestres. Para los marcadores se mantienen RSSSF y AFA como referencias. Por ejemplo, DeporTV da 2–0 ante Talleres en la jornada 13 del Clausura, mientras que AFA, RSSSF y Boca registran 2–1. [Crónica de Boca sobre el cierre del Clausura](https://www.bocajuniors.com.ar/noticias/campeones).
+
 ## Controles pendientes
 
 
 
 
-- Revisar las fuentes y las asignaciones de los DT.
+- Consultar las planillas individuales para verificar quién ocupó el banco en cada encuentro, si el análisis requiere ese nivel de detalle.
 - Verificar el criterio oficial de desempate antes de reproducir el orden de clasificación.
 
 
