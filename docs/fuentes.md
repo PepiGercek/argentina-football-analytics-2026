@@ -140,4 +140,9 @@ Consulta del 22 de noviembre de 2026. Seguimiento en el issue #1.
 - **LPF Data.** El informe de cierre de Apertura incluye frecuencias de formaciones y el de Clausura publica xG promedio por equipo. Sirven como referencia agregada. Permisos de reutilización pendientes de confirmar. [Informe de Apertura](https://www.ligaprofesional.ar/wp-content/uploads/2026/05/LPF-Data-Fecha-16-Torneo-Apertura-Mercado-Libre-2026.pdf) · [Informe de Clausura](https://www.ligaprofesional.ar/wp-content/uploads/2026/11/LPF-Data-Prensa-Fecha-16.pdf)
 - **Hudl StatsBomb Open Data.** El catálogo abierto lista las temporadas 1981 y 1997/98 para la liga argentina. [Catálogo de temporadas](https://github.com/hudl/open-data/blob/master/data/competitions.json)
 
-La prueba piloto cotejará un partido de Boca de cada torneo con la base de resultados y verificará los campos disponibles antes de medir la cobertura de los 32 partidos.
+### Prueba piloto de StrikerAPI
+
+- **Apertura, Boca 1–0 Deportivo Riestra.** Coincidieron la fecha, la localía y el marcador. La API reportó 25 remates y devolvió 22 con coordenadas y xG. También devolvió las formaciones iniciales y estadísticas individuales.
+- **Clausura, Deportivo Riestra 3–0 Boca.** Coincidieron la fecha, la localía y el marcador. Queda pendiente verificar el detalle de remates.
+
+Para medir la cobertura por partido, se propone listar los 32 encuentros de zonas de Boca y cruzar sus identificadores con dos consultas de remates de temporada, una a favor y otra en contra. Costo estimado de 22 créditos. Cada respuesta de remates tiene un tope de 2.000 filas. Para calcular qué porcentaje de remates está cubierto dentro de cada partido también hace falta su total de referencia.
