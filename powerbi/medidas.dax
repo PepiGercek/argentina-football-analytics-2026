@@ -1,0 +1,49 @@
+﻿// Crear cada medida por separado en la tabla partidos_equipo.
+
+Partidos = DISTINCTCOUNT(partidos_equipo[partido_id])
+
+Puntos obtenidos = SUM(partidos_equipo[puntos])
+
+Goles a favor = SUM(partidos_equipo[goles_favor])
+
+Goles en contra = SUM(partidos_equipo[goles_contra])
+
+Diferencia de gol = [Goles a favor] - [Goles en contra]
+
+Victorias =
+COALESCE(
+    CALCULATE([Partidos], partidos_equipo[resultado] = "G"),
+    0
+)
+
+Empates =
+COALESCE(
+    CALCULATE([Partidos], partidos_equipo[resultado] = "E"),
+    0
+)
+
+Derrotas =
+COALESCE(
+    CALCULATE([Partidos], partidos_equipo[resultado] = "P"),
+    0
+)
+
+Puntos acumulados =
+VAR FechaActual = MAX(calendario[fecha])
+VAR UltimoPartido =
+    CALCULATE(
+        MAX(partidos_equipo[fecha_jugada]),
+        REMOVEFILTERS(calendario)
+    )
+RETURN
+    IF(
+        FechaActual <= UltimoPartido,
+        CALCULATE(
+            [Puntos obtenidos],
+            FILTER(
+                ALLSELECTED(calendario[fecha]),
+                calendario[fecha] <= FechaActual
+            )
+        ),
+        BLANK()
+    )
