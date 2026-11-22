@@ -88,3 +88,35 @@ def tabla_equipos(partidos: pd.DataFrame) -> pd.DataFrame:
     return tabla[columnas].sort_values(
         ["PTS", "Equipo"], ascending=[False, True], ignore_index=True
     )
+
+
+def tabla_anual_2026(partidos: pd.DataFrame) -> pd.DataFrame:
+    """Ordena la tabla anual a partir de los partidos de zonas de 2026."""
+    if "temporada" not in partidos or not partidos["temporada"].eq(2026).fillna(False).all():
+        raise ValueError("Se esperaban partidos de la temporada 2026.")
+
+    tabla = tabla_equipos(partidos)
+    if len(tabla) != 30 or not tabla["PJ"].eq(32).all():
+        raise ValueError("Se esperaban 30 equipos con 32 partidos cada uno.")
+
+    criterios = ["PTS", "DG", "GF"]
+    empatados = tabla.loc[tabla.duplicated(subset=criterios, keep=False)]
+
+    # Orden publicado por RSSSF para el desempate de Fair Play.
+    puesto_rsssf = {"Independiente": 13, "Defensa y Justicia": 14}
+    balance_empatado = set(empatados[criterios].itertuples(index=False, name=None))
+
+    if set(empatados["Equipo"]) != set(puesto_rsssf) or balance_empatado != {(47, 3, 39)}:
+        raise ValueError("El empate no coincide con el documentado para 2026.")
+
+    ordenada = (
+        tabla.assign(_puesto_rsssf=tabla["Equipo"].map(puesto_rsssf))
+        .sort_values(
+            [*criterios, "_puesto_rsssf"],
+            ascending=[False, False, False, True],
+            ignore_index=True,
+        )
+        .drop(columns="_puesto_rsssf")
+    )
+    ordenada.insert(0, "Pos", ordenada.index + 1)
+    return ordenada

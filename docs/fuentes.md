@@ -83,13 +83,23 @@ La asignación de las jornadas intermedias se infiere por continuidad del ciclo.
 
 El [resumen de campaña de DeporTV](https://deportv.gob.ar/futbol/campana-boca-valio-titulo-liga-profesional-nid:18747) respalda el cambio de DT entre semestres. Para los marcadores se mantienen RSSSF y AFA como referencias. Por ejemplo, DeporTV da 2–0 ante Talleres en la jornada 13 del Clausura, mientras que AFA, RSSSF y Boca registran 2–1. [Crónica de Boca sobre el cierre del Clausura](https://www.bocajuniors.com.ar/noticias/campeones).
 
+### Orden de la tabla anual y criterio de desempate
+
+El [artículo 24 del reglamento de AFA](https://assets1.afa.com.ar/2026/BOLETINES/Boletin-Resoluciones-6818---Complementario-01---Reglamento-Torneos-LPF-Primera-2026.pdf#page=29) define el orden por puntos, diferencia de gol, goles a favor y Fair Play. Si persiste el empate, se recurre a un sorteo. Si la igualdad en puntos define un descenso, corresponde un desempate en cancha.
+
+Independiente y Defensa y Justicia fueron los únicos clubes igualados en los tres criterios que se calculan desde los marcadores. Ambos terminaron con 47 puntos, +3 de diferencia y 39 goles a favor. El [Boletín 6974 de AFA, expediente 100253](https://assets1.afa.com.ar/2026/BOLETINES/Boletin-6974.-12.11.docx-%281%29.pdf#page=2), documenta cuatro sanciones al cuerpo técnico de Defensa tras el partido con Boca.
+
+La [edición de RSSSF actualizada el 19 de noviembre](https://www.rsssf.org/tablesa/arg2026.html) ubica a Independiente 13.º y a Defensa y Justicia 14.º. La copia de Cómo Salió los mostraba en orden inverso y se utilizó para contrastar sus balances por equipo. La consulta a RSSSF del 2026-11-22 devolvió el mismo SHA256 que la copia local `data/raw/rsssf_argentina_2026.html`.
+
+La función `tabla_anual_2026` calcula los balances desde los marcadores y usa el orden publicado por RSSSF para ese empate. El cálculo de los puntajes de Fair Play requeriría los datos disciplinarios. El orden de los 30 equipos coincidió con RSSSF en `tests/test_clasificacion_anual.py`. El 2026-11-22 pasaron las 31 pruebas de la suite, sin omisiones.
+
 ## Controles pendientes
 
 
 
 
 - Consultar las planillas individuales para verificar quién ocupó el banco en cada encuentro, si el análisis requiere ese nivel de detalle.
-- Verificar el criterio oficial de desempate antes de reproducir el orden de clasificación.
+
 
 
 ## Referencia y equivalencias para el cotejo con AFA

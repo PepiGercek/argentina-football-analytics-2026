@@ -48,7 +48,7 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 30 pruebas automatizadas, 24 unitarias y 6 sobre archivos reales.
+Pasaron 31 pruebas automatizadas, 24 unitarias y 7 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
@@ -56,7 +56,7 @@ Los 480 partidos coinciden con RSSSF en jornada, localía, fecha de juego y marc
 
 El [notebook de Boca](notebooks/01_boca_ciclos_2026.ipynb) compara los 16 partidos de zonas de cada ciclo. Boca pasó de 30 a 33 puntos. Sumó 8 puntos más de local y 5 menos de visitante.
 
-Queda pendiente verificar los criterios oficiales de desempate para reproducir el orden de la tabla anual.
+Los 30 puestos de la tabla anual coinciden con RSSSF. Para el empate entre Independiente y Defensa y Justicia, el cálculo incorpora el orden publicado por RSSSF según el criterio de Fair Play.
 
 Ver [fuentes y trazabilidad](docs/fuentes.md).
 
