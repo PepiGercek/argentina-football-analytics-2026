@@ -48,7 +48,7 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 33 pruebas automatizadas, 25 unitarias y 8 sobre archivos reales.
+Pasaron 34 pruebas automatizadas, 25 unitarias y 9 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
@@ -65,6 +65,10 @@ Ver [fuentes y trazabilidad](docs/fuentes.md).
 ![Puntos acumulados de Boca Juniors, Rosario Central y Argentinos Juniors por fecha de juego](reports/evolucion_puntos_top3_2026.png)
 
 El gráfico sigue a los tres primeros de la tabla anual. Cada equipo suma sus puntos el día en que disputó el partido, incluso cuando se reprogramó la jornada. El [script de generación](reports/generar_evolucion_puntos_top3.py) permite repetir el cálculo y regenerar el PNG.
+
+## Apertura vs. Clausura
+
+El [notebook de comparación](notebooks/02_apertura_vs_clausura_2026.ipynb) reúne los puntos y goles de los 30 equipos en ambos torneos. El [gráfico de cambios en puntos](reports/apertura_vs_clausura_2026.png) muestra que Instituto registró la mayor suba (+13) y Estudiantes de La Plata la mayor caída (−15).
 
 ## Entorno de desarrollo
 

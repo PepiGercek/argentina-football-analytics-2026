@@ -120,3 +120,44 @@ def tabla_anual_2026(partidos: pd.DataFrame) -> pd.DataFrame:
     )
     ordenada.insert(0, "Pos", ordenada.index + 1)
     return ordenada
+
+
+def comparar_torneos_2026(partidos: pd.DataFrame) -> pd.DataFrame:
+    """Compara los balances de los 30 clubes entre Apertura y Clausura."""
+    requeridas = {"temporada", "torneo"}
+    faltantes = sorted(requeridas - set(partidos.columns))
+    if faltantes:
+        raise ValueError(f"Faltan columnas requeridas: {faltantes}")
+
+    torneos = ("Apertura", "Clausura")
+    if not partidos["temporada"].eq(2026).fillna(False).all():
+        raise ValueError("Se esperaban partidos de la temporada 2026.")
+    if set(partidos["torneo"]) != set(torneos):
+        raise ValueError("Se esperaban partidos de Apertura y Clausura.")
+
+    columnas = ["PJ", "PTS", "GF", "GC"]
+    balances = {}
+    for torneo in torneos:
+        seleccion = partidos.loc[partidos["torneo"].eq(torneo)]
+        balances[torneo] = (
+            tabla_equipos(seleccion)
+            .set_index("Equipo")[columnas]
+            .add_suffix(f"_{torneo}")
+        )
+
+    comparacion = balances["Apertura"].join(
+        balances["Clausura"], how="outer", validate="one_to_one"
+    )
+    cobertura = comparacion[["PJ_Apertura", "PJ_Clausura"]].eq(16)
+    if len(comparacion) != 30 or not cobertura.fillna(False).all().all():
+        raise ValueError("Se esperaban 30 equipos con 16 partidos en cada torneo.")
+
+    for indicador in ("PTS", "GF", "GC"):
+        comparacion[f"Cambio_{indicador}"] = (
+            comparacion[f"{indicador}_Clausura"]
+            - comparacion[f"{indicador}_Apertura"]
+        )
+
+    return comparacion.reset_index().sort_values(
+        ["Cambio_PTS", "Equipo"], ascending=[False, True], ignore_index=True
+    )
