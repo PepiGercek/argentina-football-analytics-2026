@@ -48,7 +48,7 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 34 pruebas automatizadas, 25 unitarias y 9 sobre archivos reales.
+Pasaron 35 pruebas automatizadas, 25 unitarias y 10 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
@@ -69,6 +69,10 @@ El gráfico sigue a los tres primeros de la tabla anual. Cada equipo suma sus pu
 ## Apertura vs. Clausura
 
 El [notebook de comparación](notebooks/02_apertura_vs_clausura_2026.ipynb) reúne los puntos y goles de los 30 equipos en ambos torneos. El [gráfico de cambios en puntos](reports/apertura_vs_clausura_2026.png) muestra que Instituto registró la mayor suba (+13) y Estudiantes de La Plata la mayor caída (−15).
+
+## Resultados en SQL
+
+La base SQLite se genera a partir de los 480 partidos validados. La [consulta de balance anual](sql/02_balance_anual.sql) recalcula los resultados de los 30 clubes y una prueba confirma que coinciden con pandas. La [guía del entorno](docs/entorno.md#base-sqlite) explica cómo reconstruir la base y ejecutar el control.
 
 ## Entorno de desarrollo
 
