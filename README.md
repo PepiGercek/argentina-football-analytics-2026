@@ -79,6 +79,8 @@ La base SQLite se genera a partir de los 480 partidos validados. La [consulta de
 El informe incluye **Rendimiento por equipo**, con filtros por club y torneo, indicadores y evolución de puntos, y **Tabla anual**, con la clasificación de los 30 clubes.
 
 La [guía de Power BI](powerbi/README.md) explica cómo exportar los datos desde SQLite, relacionar las tablas y recrear las medidas DAX del informe.
+
+![Informe de Power BI con Boca Juniors seleccionado. 32 partidos, 63 puntos, 46 goles a favor y 23 en contra.](reports/powerbi_rendimiento_boca_2026.png)
  
 ## Entorno de desarrollo
 
