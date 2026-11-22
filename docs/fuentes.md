@@ -149,3 +149,9 @@ Las dos consultas de remates por temporada se cruzaron con el listado de zonas m
 El xG registrado suma los valores de los remates disponibles de Boca. El xGA registrado aplica el mismo cálculo a los remates de sus rivales. La cobertura de 32/32 indica presencia de datos por partido. En el piloto del Apertura ante Deportivo Riestra, la API registró coordenadas y xG para 22 de los 25 remates informados.
 
 En ese mismo piloto se comprobaron las formaciones iniciales y la presencia de estadísticas de jugadores. La cobertura de esos campos en el resto de la temporada queda pendiente.
+
+### Mapa de remates de Boca
+
+El mapa muestra los remates con coordenadas y xG de los 32 partidos de zonas. Ambos paneles usan la misma orientación y escala. La media cancha es esquemática, con 68 m de ancho de referencia y el punto penal alineado con `x = 0.23` en las coordenadas de StrikerAPI. [Coordenadas de StrikerAPI](https://strikerapi.com/docs/get-shot-map) · [Dimensiones del terreno de juego](https://www.theifab.com/es/laws/latest/the-field-of-play/)
+
+El [generador del mapa](../reports/generar_mapa_remates_boca.py) usa los JSON locales de partidos y remates a favor.
