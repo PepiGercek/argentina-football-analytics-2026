@@ -131,3 +131,13 @@ RSSSF también identifica al Club Atlético Talleres con sede en Córdoba.
 Referencia: https://www.rsssf.org/tablesa/arg2026.html
 
 El cotejo conservará el nombre original de AFA junto al nombre normalizado, para mantener la trazabilidad.
+
+## Fuentes candidatas para datos avanzados
+
+Consulta del 22 de noviembre de 2026. Seguimiento en el issue #1.
+
+- **StrikerAPI.** Declara cobertura de remates geolocalizados con xG propio, formaciones y estadísticas de jugadores para la liga argentina. Sus términos permiten el análisis y la visualización en dashboards, y restringen la redistribución como archivo o dataset. Cobertura por partido pendiente de verificar. [Cobertura para Argentina](https://strikerapi.com/argentina-liga-profesional) · [Términos de uso](https://strikerapi.com/terms)
+- **LPF Data.** El informe de cierre de Apertura incluye frecuencias de formaciones y el de Clausura publica xG promedio por equipo. Sirven como referencia agregada. Permisos de reutilización pendientes de confirmar. [Informe de Apertura](https://www.ligaprofesional.ar/wp-content/uploads/2026/05/LPF-Data-Fecha-16-Torneo-Apertura-Mercado-Libre-2026.pdf) · [Informe de Clausura](https://www.ligaprofesional.ar/wp-content/uploads/2026/11/LPF-Data-Prensa-Fecha-16.pdf)
+- **Hudl StatsBomb Open Data.** El catálogo abierto lista las temporadas 1981 y 1997/98 para la liga argentina. [Catálogo de temporadas](https://github.com/hudl/open-data/blob/master/data/competitions.json)
+
+La prueba piloto cotejará un partido de Boca de cada torneo con la base de resultados y verificará los campos disponibles antes de medir la cobertura de los 32 partidos.
