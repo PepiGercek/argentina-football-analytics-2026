@@ -48,7 +48,7 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 36 pruebas automatizadas, 25 unitarias y 11 sobre archivos reales.
+Pasaron 37 pruebas automatizadas, 26 unitarias y 11 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
@@ -73,6 +73,12 @@ El [notebook de comparación](notebooks/02_apertura_vs_clausura_2026.ipynb) reú
 ## Resultados en SQL
 
 La base SQLite se genera a partir de los 480 partidos validados. La [consulta de balance anual](sql/02_balance_anual.sql) recalcula los resultados de los 30 clubes y una prueba confirma que coinciden con pandas. La [guía del entorno](docs/entorno.md#base-sqlite) explica cómo reconstruir la base y ejecutar el control.
+
+## xG y xGA de Boca
+
+El [notebook de ciclos](notebooks/01_boca_ciclos_2026.ipynb) compara los 32 partidos de zonas de Boca. Del Apertura al Clausura, el xG registrado pasó de **20,58 a 24,82** y el xGA registrado pasó de **12,40 a 14,63**.
+
+Los valores se calculan sobre los remates con xG disponible en StrikerAPI. [Cobertura y método de cálculo](docs/fuentes.md#cobertura-de-strikerapi-para-boca)
 
 ## Power BI
 
