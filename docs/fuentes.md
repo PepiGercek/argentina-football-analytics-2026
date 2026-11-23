@@ -136,7 +136,7 @@ El cotejo conservará el nombre original de AFA junto al nombre normalizado, par
 
 Consulta del 22 de noviembre de 2026. Seguimiento en el issue #1.
 
-- **StrikerAPI.** Declara cobertura de remates geolocalizados con xG propio, formaciones y estadísticas de jugadores para la liga argentina. Sus términos permiten el análisis y la visualización en dashboards, y restringen la redistribución como archivo o dataset. Cobertura por partido pendiente de verificar. [Cobertura para Argentina](https://strikerapi.com/argentina-liga-profesional) · [Términos de uso](https://strikerapi.com/terms)
+- **StrikerAPI.** Fuente de los datos de remates y formaciones analizados para Boca Juniors. Se verificó la cobertura en los 32 partidos de zonas de Boca. [Cobertura para Argentina](https://strikerapi.com/argentina-liga-profesional) · [Cobertura y permisos de uso en este proyecto](#cobertura-de-strikerapi-para-boca)
 - **LPF Data.** El informe de cierre de Apertura incluye frecuencias de formaciones y el de Clausura publica xG promedio por equipo. Sirven como referencia agregada. Permisos de reutilización pendientes de confirmar. [Informe de Apertura](https://www.ligaprofesional.ar/wp-content/uploads/2026/05/LPF-Data-Fecha-16-Torneo-Apertura-Mercado-Libre-2026.pdf) · [Informe de Clausura](https://www.ligaprofesional.ar/wp-content/uploads/2026/11/LPF-Data-Prensa-Fecha-16.pdf)
 - **Hudl StatsBomb Open Data.** El catálogo abierto lista las temporadas 1981 y 1997/98 para la liga argentina. [Catálogo de temporadas](https://github.com/hudl/open-data/blob/master/data/competitions.json)
 
@@ -146,9 +146,11 @@ Se cotejaron los 32 partidos de zonas con el CSV de resultados por torneo, fecha
 
 Las dos consultas de remates por temporada se cruzaron con el listado de zonas mediante `game_id`. En los 32 partidos hubo remates con coordenadas y xG en ambos sentidos. El detalle incluye 434 remates de Boca y 323 de sus rivales. El listado de partidos y las dos consultas de temporada consumieron 22 créditos.
 
-El xG registrado suma los valores de los remates disponibles de Boca. El xGA registrado aplica el mismo cálculo a los remates de sus rivales. La cobertura de 32/32 indica presencia de datos por partido. En el piloto del Apertura ante Deportivo Riestra, la API registró coordenadas y xG para 22 de los 25 remates informados.
+El xG por remate proviene del modelo de StrikerAPI y se obtuvo con `get_shot_map`. El xG registrado suma los valores disponibles para los remates de Boca. El xGA registrado suma los de sus rivales. La cobertura de 32/32 indica presencia de datos por partido y el detalle puede ser parcial. En el piloto del Apertura ante Deportivo Riestra, la API devolvió coordenadas y xG para 22 de los 25 remates informados. [Documentación de remates](https://strikerapi.com/docs/get-shot-map)
 
-En ese mismo piloto se comprobaron las formaciones iniciales y la presencia de estadísticas de jugadores. La cobertura de esos campos en el resto de la temporada queda pendiente.
+La sección 7 de los términos de StrikerAPI permite usar los datos para proyectos personales y análisis, y mostrarlos en visualizaciones propias. Restringe su redistribución como archivo o dataset independiente. El proyecto comparte el código, los resultados del análisis y las visualizaciones. Las respuestas JSON de la API se guardan localmente. [Términos de uso](https://strikerapi.com/terms#7-acceptable-use)
+
+Las 32 fichas de Boca contienen un esquema inicial y 11 titulares. La presencia de estadísticas individuales adicionales se comprobó en el partido piloto. [Formaciones iniciales de Boca](#formaciones-iniciales-de-boca)
 
 ### Mapa de remates de Boca
 
