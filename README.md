@@ -87,6 +87,8 @@ Boca quedó en el grupo que promedió menos goles recibidos por partido y una ma
 
 El informe incluye **Rendimiento por equipo**, con filtros por club y torneo, indicadores y evolución de puntos, y **Tabla anual**, con la clasificación de los 30 clubes.
 
+El informe se abre en Power BI Desktop con los datos ya importados. [Descargar LPF_2026.pbix](https://github.com/PepiGercek/argentina-football-analytics-2026/releases/download/v0.1.0/LPF_2026.pbix)
+
 La [guía de Power BI](powerbi/README.md) explica cómo exportar los datos desde SQLite, relacionar las tablas y recrear las medidas DAX del informe.
 
 ![Informe de Power BI con Boca Juniors seleccionado. 32 partidos, 63 puntos, 46 goles a favor y 23 en contra.](reports/powerbi_rendimiento_boca_2026.png)
