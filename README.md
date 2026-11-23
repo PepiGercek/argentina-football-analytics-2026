@@ -1,31 +1,18 @@
 ﻿# LPF 2026 | Radiografía del fútbol argentino
 
-Proyecto personal de portfolio para analizar a los 30 equipos de la Liga Profesional Argentina 2026.
+Análisis de los **30 equipos** de la Liga Profesional Argentina 2026 a partir de **480 partidos** de las fases de zonas del Apertura y el Clausura.
 
-El informe especial sobre Boca Juniors incluirá una comparación de los ciclos de Claudio Úbeda y Rodolfo Arruabarrena, con fechas y resultados sujetos a verificación.
+## ¿Qué cambió entre los dos ciclos del Boca que ganó la tabla anual?
 
-## Primera entrega
+Boca terminó primero con **63 puntos**. Sumó 30 en el Apertura con Claudio Úbeda y 33 en el Clausura con Rodolfo Arruabarrena. De local pasó de **14 a 22 puntos** y de visitante, de **16 a 11**.
 
-1. Documentar la procedencia, cobertura y permisos de uso de LPF_2026_partidos.csv.
-2. Revisar y validar los resultados de Boca que correspondan a la tabla anual.
-3. Ampliar la validación a las fases de zonas del Apertura y el Clausura, excluyendo los playoffs.
+## Explorá el proyecto
 
-Referencias iniciales aportadas para contrastar con los datos:
-- Boca: 32 partidos, 17 victorias, 12 empates y 3 derrotas.
-- Balance esperado: 63 puntos, 46 goles a favor y 23 en contra.
-- Cobertura total esperada: 480 partidos.
-
-Los conteos por torneo y el balance anual de los 30 equipos ya fueron comprobados.
-
-## Análisis previstos
-
-- EDA, tabla anual y evolución por fecha.
-- Comparación entre Apertura y Clausura.
-- Rendimiento ofensivo y defensivo.
-- xG, xGA y xPTS, sujetos a disponibilidad y metodología documentada.
-- Formaciones, estilos de juego, mapas de remates y scouting.
-- Estadística aplicada, machine learning y clustering.
-- Dashboard en Power BI.
+- Cómo evolucionó la pelea por la tabla anual. [Gráfico de puntos del top 3](reports/evolucion_puntos_top3_2026.png)
+- Cómo cambiaron los resultados de los 30 equipos entre torneos. [Comparación Apertura y Clausura](notebooks/02_apertura_vs_clausura_2026.ipynb)
+- Cómo cambiaron las formaciones, los remates y los puntos esperados de Boca. [Informe de los dos ciclos](notebooks/01_boca_ciclos_2026.ipynb)
+- Qué equipos tuvieron perfiles de rendimiento similares. [Análisis de clustering](notebooks/03_clustering_equipos_2026.ipynb)
+- Cómo consultar los resultados en Power BI. [Guía del dashboard](powerbi/README.md)
 
 ## Criterios de trabajo
 
