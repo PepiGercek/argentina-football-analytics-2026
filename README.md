@@ -48,7 +48,7 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 42 pruebas automatizadas, 31 unitarias y 11 sobre archivos reales.
+Pasaron 43 pruebas automatizadas, 32 unitarias y 11 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
@@ -81,6 +81,8 @@ El [notebook de ciclos](notebooks/01_boca_ciclos_2026.ipynb) compara los 32 part
 Los valores se calculan sobre los remates con xG disponible en StrikerAPI. [Cobertura y método de cálculo](docs/fuentes.md#cobertura-de-strikerapi-para-boca)
 
 Con los remates registrados, el modelo estimó **57,30 puntos esperados (xPTS)** para Boca, frente a **63 puntos reales**. El notebook muestra el cálculo y la comparación por ciclo.
+
+El perfil de remate por jugador compara el xG total y el npxG, que excluye los penales. Miguel Merentiel lideró a Boca con **8,46 npxG en 54 remates sin penal**.
 
 ![Mapa de remates de Boca por ciclo. 181 remates en el Apertura con Úbeda y 253 en el Clausura con Arruabarrena.](reports/mapa_remates_boca_2026.png)
 
