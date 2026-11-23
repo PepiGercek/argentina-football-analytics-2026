@@ -155,3 +155,11 @@ En ese mismo piloto se comprobaron las formaciones iniciales y la presencia de e
 El mapa muestra los remates con coordenadas y xG de los 32 partidos de zonas. Ambos paneles usan la misma orientación y escala. La media cancha es esquemática, con 68 m de ancho de referencia y el punto penal alineado con `x = 0.23` en las coordenadas de StrikerAPI. [Coordenadas de StrikerAPI](https://strikerapi.com/docs/get-shot-map) · [Dimensiones del terreno de juego](https://www.theifab.com/es/laws/latest/the-field-of-play/)
 
 El [generador del mapa](../reports/generar_mapa_remates_boca.py) usa los JSON locales de partidos y remates a favor.
+
+### Formaciones iniciales de Boca
+
+Las fichas de `get_lineups` se cruzaron con los 32 partidos de zonas mediante `game_id`. Las 16 fichas de Apertura y las 16 de Clausura contienen un esquema inicial y 11 titulares. Las frecuencias usan el esquema que registra StrikerAPI. [Consulta de alineaciones](https://strikerapi.com/docs/get-lineups)
+
+Los 11 titulares de Boca en cada partido ante Deportivo Riestra se cotejaron con las crónicas del club. Para el Clausura se trató «William Alarcón» y «Williams Alarcón» como variantes del mismo nombre. [Crónica del Apertura](https://www.bocajuniors.com.ar/noticias/cabeza-y-corazon) · [Crónica del Clausura](https://www.bocajuniors.com.ar/noticias/caida-en-el-debut-en-bajo-flores)
+
+Las fichas se guardan localmente como `data/raw/strikerapi_boca_formaciones_<game_id>.json`. El módulo `lpf_analytics.descargar_formaciones` muestra las fichas pendientes y su costo previsto. La opción `--descargar` consulta las pendientes y guarda cada respuesta al recibirla. Las consultas cuestan 5 créditos por partido y la clave se carga durante la ejecución. [Documentación y términos de uso](https://strikerapi.com/docs/timing-and-rights)
