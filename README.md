@@ -105,3 +105,5 @@ La [guía de Power BI](powerbi/README.md) explica cómo exportar los datos desde
 La [guía del entorno](docs/entorno.md) describe la configuración en Windows y los pasos para reproducirla.
 
 Las versiones de las dependencias están registradas en [requirements.txt](requirements.txt).
+
+El CSV de los 480 partidos se puede reconstruir a partir del HTML público de RSSSF. [Pasos para reconstruir el CSV](docs/entorno.md#reconstruir-el-csv-de-resultados)

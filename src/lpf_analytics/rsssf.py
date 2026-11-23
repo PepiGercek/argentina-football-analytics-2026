@@ -126,3 +126,68 @@ def leer_partidos_rsssf_2026(ruta_html: str | Path) -> pd.DataFrame:
         referencia[lado] = nombres.map(NOMBRES_RSSSF)
 
     return referencia
+
+COLUMNAS_CSV = [
+    "temporada", "torneo", "fecha", "fecha_jugada", "local", "visitante",
+    "goles_local", "goles_visitante", "puntos_local", "puntos_visitante",
+    "dt_boca", "fuente_resultado", "credito_resultado", "fuente_dt_boca",
+]
+
+FUENTE_RSSSF = "https://www.rsssf.org/tablesa/arg2026.html"
+CREDITO_RSSSF = "Osvaldo José Gorgazzi / RSSSF"
+
+DT_BOCA = {
+    "Apertura": "Claudio Úbeda",
+    "Clausura": "Rodolfo Arruabarrena",
+}
+FUENTE_DT_BOCA = {
+    "Apertura": "https://deportv.gob.ar/futbol/campana-boca-valio-titulo-liga-profesional-nid%3A18747",
+    "Clausura": "https://www.bocajuniors.com.ar/noticias/comunicado-oficial-2",
+}
+
+
+def reconstruir_partidos_rsssf_2026(ruta_html: str | Path) -> pd.DataFrame:
+    """Reconstruye el esquema de resultados a partir de una copia de RSSSF."""
+    referencia = leer_partidos_rsssf_2026(ruta_html)
+    goles_local = referencia["goles_local"]
+    goles_visitante = referencia["goles_visitante"]
+    puntos_empate = goles_local.eq(goles_visitante).astype(int)
+    es_boca = referencia[["local", "visitante"]].eq("Boca Juniors").any(axis=1)
+    torneos = referencia["torneo"]
+
+    partidos = referencia.assign(
+        temporada=2026,
+        puntos_local=3 * goles_local.gt(goles_visitante).astype(int) + puntos_empate,
+        puntos_visitante=3 * goles_local.lt(goles_visitante).astype(int) + puntos_empate,
+        dt_boca=torneos.map(DT_BOCA).where(es_boca, ""),
+        fuente_resultado=FUENTE_RSSSF,
+        credito_resultado=CREDITO_RSSSF,
+        fuente_dt_boca=torneos.map(FUENTE_DT_BOCA).where(es_boca, ""),
+    )
+    return partidos[COLUMNAS_CSV]
+
+
+def main() -> None:
+    from argparse import ArgumentParser
+    from tempfile import TemporaryDirectory
+
+    parser = ArgumentParser(description="Reconstruye el CSV de resultados de LPF 2026.")
+    parser.add_argument("html", type=Path, help="Copia local de Argentina 2026 en RSSSF.")
+    parser.add_argument("csv", type=Path, help="Ruta del CSV de salida.")
+    args = parser.parse_args()
+
+    if args.html.resolve() == args.csv.resolve():
+        parser.error("Indicá una ruta de salida distinta a la del HTML.")
+
+    partidos = reconstruir_partidos_rsssf_2026(args.html)
+    args.csv.parent.mkdir(parents=True, exist_ok=True)
+    with TemporaryDirectory(dir=args.csv.parent) as carpeta:
+        temporal = Path(carpeta) / args.csv.name
+        partidos.to_csv(temporal, index=False, encoding="utf-8")
+        temporal.replace(args.csv)
+
+    print(f"CSV generado en {args.csv} con {len(partidos)} partidos.")
+
+
+if __name__ == "__main__":
+    main()

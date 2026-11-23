@@ -107,3 +107,19 @@ La consulta `sql/02_balance_anual.sql` calcula partidos jugados, victorias, empa
     .\.venv\Scripts\python.exe -m pytest tests/test_sql.py -q -ra
 
 La prueba crea su propia base en memoria a partir del CSV y del mismo esquema.
+
+## Reconstruir el CSV de resultados
+
+Desde un clon nuevo, con el entorno virtual configurado, ejecutá estos pasos en PowerShell desde la raíz del proyecto.
+
+1. Descargá una copia del HTML de RSSSF.
+
+       Invoke-WebRequest -Uri "https://www.rsssf.org/tablesa/arg2026.html" -OutFile ".\data\raw\rsssf_argentina_2026.html" -UseBasicParsing
+
+2. Generá el CSV en la ruta que usan los notebooks.
+
+       .\.venv\Scripts\python.exe -m lpf_analytics.rsssf ".\data\raw\rsssf_argentina_2026.html" ".\data\raw\LPF_2026_partidos.csv"
+
+El generador extrae los 480 partidos de zonas, normaliza los nombres y calcula los puntos a partir de los marcadores. El DT de Boca se asigna por torneo según el criterio documentado en [fuentes](fuentes.md). La reconstrucción se cotejó con el CSV original y coincidió en los 480 partidos y las 14 columnas.
+
+Si ya tenés el CSV original, usá `data/processed/LPF_2026_partidos_reconstruido.csv` como ruta de salida para conservar ambas copias y poder cotejarlas. [Argentina 2026, Osvaldo José Gorgazzi / RSSSF](https://www.rsssf.org/tablesa/arg2026.html)
