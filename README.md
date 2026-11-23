@@ -48,7 +48,7 @@ La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de lo
 
 Balance agregado de Boca comprobado desde los marcadores.
 
-Pasaron 37 pruebas automatizadas, 26 unitarias y 11 sobre archivos reales.
+Pasaron 42 pruebas automatizadas, 31 unitarias y 11 sobre archivos reales.
 
 Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
 
@@ -79,6 +79,8 @@ La base SQLite se genera a partir de los 480 partidos validados. La [consulta de
 El [notebook de ciclos](notebooks/01_boca_ciclos_2026.ipynb) compara los 32 partidos de zonas de Boca. Del Apertura al Clausura, el xG registrado pasó de **20,58 a 24,82** y el xGA registrado pasó de **12,40 a 14,63**.
 
 Los valores se calculan sobre los remates con xG disponible en StrikerAPI. [Cobertura y método de cálculo](docs/fuentes.md#cobertura-de-strikerapi-para-boca)
+
+Con los remates registrados, el modelo estimó **57,30 puntos esperados (xPTS)** para Boca, frente a **63 puntos reales**. El notebook muestra el cálculo y la comparación por ciclo.
 
 ![Mapa de remates de Boca por ciclo. 181 remates en el Apertura con Úbeda y 253 en el Clausura con Arruabarrena.](reports/mapa_remates_boca_2026.png)
 
