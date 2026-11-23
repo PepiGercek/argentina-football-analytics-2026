@@ -163,3 +163,13 @@ Las fichas de `get_lineups` se cruzaron con los 32 partidos de zonas mediante `g
 Los 11 titulares de Boca en cada partido ante Deportivo Riestra se cotejaron con las crónicas del club. Para el Clausura se trató «William Alarcón» y «Williams Alarcón» como variantes del mismo nombre. [Crónica del Apertura](https://www.bocajuniors.com.ar/noticias/cabeza-y-corazon) · [Crónica del Clausura](https://www.bocajuniors.com.ar/noticias/caida-en-el-debut-en-bajo-flores)
 
 Las fichas se guardan localmente como `data/raw/strikerapi_boca_formaciones_<game_id>.json`. El módulo `lpf_analytics.descargar_formaciones` muestra las fichas pendientes y su costo previsto. La opción `--descargar` consulta las pendientes y guarda cada respuesta al recibirla. Las consultas cuestan 5 créditos por partido y la clave se carga durante la ejecución. [Documentación y términos de uso](https://strikerapi.com/docs/timing-and-rights)
+
+### Minutos reglamentarios y npxG por 90
+
+Los minutos se estiman restando el minuto de entrada (`minute_on`) al de salida (`minute_off`) de las fichas de StrikerAPI. Si la ficha no registra una salida, se usa el minuto 90. El cálculo excluye el tiempo añadido.
+
+Ante Instituto, el 9 de octubre de 2026 (`game_id` `401841607`), StrikerAPI registró la entrada y la salida de Leandro Paredes (`player_id` `153115`) al minuto 55. Boca confirmó que jugó 16 minutos y que lo reemplazó Santiago Ascacibar, cuyo ingreso figura al minuto 71. El cálculo usa el 71 como minuto de salida de Paredes. [Crónica oficial de Boca](https://www.bocajuniors.com.ar/noticias/empate-en-cordoba)
+
+En los 32 partidos de zonas, las entradas y salidas coincidieron por minuto y Boca sumó 990 minutos reglamentarios por encuentro. Los 434 remates registrados se vincularon por partido y jugador con minutos positivos.
+
+El npxG por 90 se calcula como `90 × npxG registrado / minutos reglamentarios`. El denominador incluye los partidos en los que el jugador no remató. El ranking muestra a jugadores con al menos 450 minutos.

@@ -39,3 +39,26 @@ def resumir_remates_jugadores(remates: pd.DataFrame) -> pd.DataFrame:
         ["npxG_registrado", "Remates_sin_penal", "Jugador"],
         ascending=[False, False, True],
     )
+
+def resumir_remates_por_90(
+    remates: pd.DataFrame, minutos: pd.DataFrame
+) -> pd.DataFrame:
+    """Añade minutos reglamentarios y npxG por 90 al perfil de remates."""
+    claves = ["game_id", "player_id"]
+    tipos_id = {"game_id": "string", "player_id": "string"}
+    remates = remates.astype(tipos_id)
+    minutos = minutos[[*claves, "minutos_reglamentarios"]].astype(tipos_id)
+
+    control = remates[claves].merge(
+        minutos, on=claves, how="left", validate="many_to_one"
+    )
+    if control["minutos_reglamentarios"].fillna(0).le(0).any():
+        raise ValueError("Hay remates sin minutos positivos para ese jugador y partido.")
+
+    minutos_por_jugador = (
+        minutos.groupby("player_id")["minutos_reglamentarios"].sum().rename("Minutos")
+    )
+    perfil = resumir_remates_jugadores(remates)
+    tabla = perfil.join(minutos_por_jugador, validate="one_to_one")
+    tabla["npxG_por_90"] = 90 * tabla["npxG_registrado"] / tabla["Minutos"]
+    return tabla

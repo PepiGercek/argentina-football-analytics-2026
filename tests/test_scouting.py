@@ -1,6 +1,10 @@
 import pandas as pd
+import pytest
 
-from lpf_analytics.scouting import resumir_remates_jugadores
+from lpf_analytics.scouting import (
+    resumir_remates_jugadores,
+    resumir_remates_por_90,
+)
 
 
 def test_resumen_separa_penales_y_remates_sin_penal():
@@ -25,3 +29,37 @@ def test_resumen_separa_penales_y_remates_sin_penal():
     assert tabla.loc["b", "Remates_sin_penal"] == 0
     assert tabla.loc["b", "npxG_registrado"] == 0.0
     assert pd.isna(tabla.loc["b", "npxG_por_remate"])
+
+
+def test_npxg_por_90_incluye_minutos_de_partidos_sin_remates():
+    remates = pd.DataFrame(
+        [
+            ("p1", "a", "Jugador A", False, 0.25, "saved"),
+            ("p1", "a", "Jugador A", True, 0.75, "goal"),
+        ],
+        columns=["game_id", "player_id", "player", "penalty", "xg", "outcome"],
+    )
+    minutos = pd.DataFrame(
+        [("p1", "a", 60), ("p2", "a", 30)],
+        columns=["game_id", "player_id", "minutos_reglamentarios"],
+    )
+
+    tabla = resumir_remates_por_90(remates, minutos)
+
+    assert tabla.loc["a", "Minutos"] == 90
+    assert tabla.loc["a", "npxG_por_90"] == 0.25
+
+
+@pytest.mark.parametrize("partido, duracion", [("p3", 60), ("p1", 0)])
+def test_npxg_por_90_exige_minutos_positivos_en_el_partido_del_remate(partido, duracion):
+    remates = pd.DataFrame(
+        [("p1", "a", "Jugador A", False, 0.25, "saved")],
+        columns=["game_id", "player_id", "player", "penalty", "xg", "outcome"],
+    )
+    minutos = pd.DataFrame(
+        [("p2", "a", 30), (partido, "a", duracion)],
+        columns=["game_id", "player_id", "minutos_reglamentarios"],
+    )
+
+    with pytest.raises(ValueError, match="sin minutos positivos"):
+        resumir_remates_por_90(remates, minutos)

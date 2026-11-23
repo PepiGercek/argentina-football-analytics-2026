@@ -84,6 +84,8 @@ Con los remates registrados, el modelo estimó **57,30 puntos esperados (xPTS)**
 
 El perfil de remate por jugador compara el xG total y el npxG, que excluye los penales. Miguel Merentiel lideró a Boca con **8,46 npxG en 54 remates sin penal**.
 
+Entre los 25 jugadores de Boca con al menos 450 minutos en las fases de zonas, **Adam Bareiro** lideró en npxG por 90 con **0,483**, seguido por **Miguel Merentiel** con **0,436**. Merentiel lideró el acumulado con **8,455 npxG en 1.746 minutos**. [Ranking por jugador](notebooks/01_boca_ciclos_2026.ipynb)
+
 El notebook compara las formaciones iniciales de los 32 partidos de Boca. En el Apertura aparecieron **siete esquemas** y en el Clausura, **tres**. El **4-3-3** y el **4-2-3-1** sumaron 15 de los 16 partidos del Clausura. [Fuente y cobertura](docs/fuentes.md#formaciones-iniciales-de-boca)
 
 ![Mapa de remates de Boca por ciclo. 181 remates en el Apertura con Úbeda y 253 en el Clausura con Arruabarrena.](reports/mapa_remates_boca_2026.png)
