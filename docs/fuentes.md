@@ -11,6 +11,8 @@
 
 El CSV es un archivo derivado. Su extracción y sus transformaciones deben auditarse.
 
+El CSV también se puede regenerar desde el HTML público de RSSSF con `lpf_analytics.rsssf`. La reconstrucción coincidió con el CSV original en los 480 partidos y las 14 columnas. [Pasos para reconstruirlo](entorno.md#reconstruir-el-csv-de-resultados)
+
 ## Fuente de los marcadores
 
 [Argentina 2026 — RSSSF](https://www.rsssf.org/tablesa/arg2026.html).

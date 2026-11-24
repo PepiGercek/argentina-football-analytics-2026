@@ -2,6 +2,10 @@
 
 Análisis de los **30 equipos** de la Liga Profesional Argentina 2026 a partir de **480 partidos** de las fases de zonas del Apertura y el Clausura.
 
+![Puntos acumulados de Boca Juniors, Rosario Central y Argentinos Juniors por fecha de juego](reports/evolucion_puntos_top3_2026.png)
+
+**Qué muestra este proyecto:** Python (pandas, scikit-learn), SQL (SQLite), Power BI con DAX, tests automatizados con pytest y validación de datos contra fuentes externas.
+
 ## ¿Qué cambió entre los dos ciclos del Boca que ganó la tabla anual?
 
 Boca terminó primero con **63 puntos**. Sumó 30 en el Apertura con Claudio Úbeda y 33 en el Clausura con Rodolfo Arruabarrena. De local pasó de **14 a 22 puntos** y de visitante, de **16 a 11**.
@@ -31,27 +35,15 @@ Entorno local: Windows, VS Code y PowerShell.
 
 ## Estado
 
-La base local contiene 480 partidos de zonas, 240 por torneo. Los balances de los 30 equipos coinciden con la tabla anual de Cómo Salió.
+- **480 partidos validados** contra RSSSF en jornada, localía, fecha y marcador. Los balances y los 30 puestos de la tabla anual coinciden con RSSSF y Cómo Salió.
+- **Los 32 partidos de Boca** coinciden con la referencia de AFA en rivales, localía y marcadores.
+- **50 pruebas automatizadas** (39 unitarias y 11 sobre archivos reales) controlan los cálculos.
 
-Balance agregado de Boca comprobado desde los marcadores.
-
-Pasaron 50 pruebas automatizadas, 39 unitarias y 11 sobre archivos reales.
-
-Los 32 partidos de Boca coinciden con la referencia de AFA en rivales, localía y marcadores. El playoff contra Huracán está excluido.
-
-Los 480 partidos coinciden con RSSSF en jornada, localía, fecha de juego y marcador.
-
-El [notebook de Boca](notebooks/01_boca_ciclos_2026.ipynb) compara los 16 partidos de zonas de cada ciclo. Boca pasó de 30 a 33 puntos. Sumó 8 puntos más de local y 5 menos de visitante.
-
-Los 30 puestos de la tabla anual coinciden con RSSSF. Para el empate entre Independiente y Defensa y Justicia, el cálculo incorpora el orden publicado por RSSSF según el criterio de Fair Play.
-
-Ver [fuentes y trazabilidad](docs/fuentes.md).
+Detalle de cada control en [estado de la validación](docs/estado.md) y [fuentes y trazabilidad](docs/fuentes.md).
 
 ## Evolución de puntos
 
-![Puntos acumulados de Boca Juniors, Rosario Central y Argentinos Juniors por fecha de juego](reports/evolucion_puntos_top3_2026.png)
-
-El gráfico sigue a los tres primeros de la tabla anual. Cada equipo suma sus puntos el día en que disputó el partido, incluso cuando se reprogramó la jornada. El [script de generación](reports/generar_evolucion_puntos_top3.py) permite repetir el cálculo y regenerar el PNG.
+El gráfico del principio sigue a los tres primeros de la tabla anual. Cada equipo suma sus puntos el día en que disputó el partido, incluso cuando se reprogramó la jornada. El [script de generación](reports/generar_evolucion_puntos_top3.py) permite repetir el cálculo y regenerar el PNG.
 
 ## Apertura vs. Clausura
 
